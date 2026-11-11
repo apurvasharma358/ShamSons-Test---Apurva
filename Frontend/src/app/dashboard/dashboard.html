@@ -1,0 +1,17 @@
+<div style="padding: 20px; font-family: sans-serif;">
+    <h1>Dashboard Workspace</h1>
+
+    <!-- Check if backendData exists directly without strict parameter dependencies -->
+    <div *ngIf="backendData; else noData"
+        style="background: #f4f4f9; padding: 15px; border-radius: 8px; margin-top: 15px;">
+        <h3 style="color: #2e7d32;">🎉 Connection Successful! Data from Node.js:</h3>
+        <p><strong>Message:</strong> {{ backendData.message }}</p>
+        <p><strong>User ID:</strong> {{ backendData.userId }}</p>
+        <p><strong>Email Address:</strong> {{ backendData.email }}</p>
+        <p><strong>First Name:</strong> {{ backendData.firstName || 'Not Provided (Test Account)' }}</p>
+    </div>
+
+    <ng-template #noData>
+        <p style="color: gray;">Fetching secure database data from backend API...</p>
+    </ng-template>
+</div>
